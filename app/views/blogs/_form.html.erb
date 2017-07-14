@@ -1,0 +1,22 @@
+
+
+    <%= form_for @blogs do |f|%>
+     <div class="ui form">
+        <div class="field">
+          <%= f.label :title%>
+          <%= f.text_field :title, placeholder: "blog name" %>
+        </div>
+        <div class="field">
+          <%= f.label "image url" %>
+          <%= f.url_field :body, placeholder: "blog url"%>
+        </div>
+        <div class="field">
+          <%= f.label "Blog description" %>
+          <%= f.text_area :description, placeholder: "write your blog description"%>
+        </div>
+        <div class="field">
+          <%= f.submit class: "ui violet big basic button" %>
+        </div>
+     </div>
+      
+    <%end%>
