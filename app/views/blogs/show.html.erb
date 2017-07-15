@@ -1,12 +1,12 @@
 <div class="ui main text container segment">
-    <div class="ui huge header"><%=@blog.title%></div>
-    <div class="ui centered image rounded">
-      <%= image_tag(@blog.body) %> 
-    </div>
-    
-    <div class="content">
-      <p><%=@blog.description%></p>
-    </div>
-    <%= link_to "Edit", edit_blog_path(@blog),class:"ui orange basic button" %>
-    <%= link_to "Delete", blog_path(@blog), method: :delete ,class:"ui basic red button"%>
+  <div class="ui huge header"><%=@blog.title%></div>
+  <div class="ui centered image rounded">
+    <%= image_tag(@blog.body) %>
+  </div>
+
+  <div class="content">
+    <p><%=@blog.description%></p>
+  </div>
+  <%= link_to "Edit", edit_blog_path(@blog),class:"ui orange basic button" %>
+  <%= link_to "Delete", blog_path(@blog), Error: source does not appear to be markup.,class:"ui orange basic button" %>
 </div>

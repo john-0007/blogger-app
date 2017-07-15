@@ -1,0 +1,20 @@
+<div class="ui main text container segment">
+  <div class="ui huge header">Sing In
+  </div>
+  <%= form_tag session_path do %>
+  <div class="ui form">
+    <div class="field">
+      <%= label_tag "email"%>
+      <%= text_field_tag :email, nil, placeholder: "Enter your email" %>
+    </div>
+    <div class="field">
+      <%= label_tag "password" %>
+      <%= password_field_tag :password,nil, placeholder: "Enter your password"%>
+    </div>
+    <div class="field">
+      <%= submit_tag "sing In",class: "ui violet big basic button" %>
+    </div>
+  </div>
+
+  <%end%>
+</div>

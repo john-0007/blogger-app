@@ -1,0 +1,44 @@
+<div class="ui main text container segment">
+  <div class="ui huge header">Rigestration</div>
+  <% if @user.errors.any?%>
+  <div class="ui error message">
+    <i class="close icon"></i>
+    <div class="header">
+      There were
+      <%= pluralize(@user.errors.count,"error")%>
+      with your submission
+    </div>
+    <ul class="list">
+      <% @user.errors.full_messages.each do |mas|%>
+      <li><%= mas%></li>
+      <%end%>
+
+    </ul>
+  </div>
+  <%end%>
+  <%= form_for @user do |f|%>
+  <div class="ui form">
+    <div class="field">
+      <%= f.label :username%>
+      <%= f.text_field :username, placeholder: "Usernaem" %>
+    </div>
+    <div class="field">
+      <%= f.label "Email" %>
+      <%= f.text_field :email, placeholder: "write your email "%>
+    </div>
+    <div class="field">
+      <%= f.label "password" %>
+      <%= f.text_field :password, placeholder: "password"%>
+    </div>
+    <div class="field">
+      <%= f.label "password confimation" %>
+      <%= f.text_field :password_confirmation, placeholder: "confirm your password"%>
+    </div>
+    <div class="field">
+      <%= f.submit "Register",class: "ui violet big basic button" %>
+    </div>
+  </div>
+
+  <%end%>
+
+</div>
