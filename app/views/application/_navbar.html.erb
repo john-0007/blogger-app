@@ -1,0 +1,13 @@
+<div class="ui fixed inverted menu">
+  <div class="ui container">
+    <div class="header item">
+      <i class="code icon large"></i>
+      blogger</div>
+    <%= link_to "Home", blogs_path, class: "item"%>
+    <%= link_to "New Blog", new_blog_path, class: "item"%>
+    <div class="right menu">
+      <%=render_user_aut_nav%>
+
+    </div>
+  </div>
+</div>
