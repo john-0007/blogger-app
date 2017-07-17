@@ -3,5 +3,6 @@
   <%= image_tag(blog.body) %>
   <h2><%= link_to blog.title, blog_path(blog)%></h2>
   <p><%= blog.description%></p>
+  <p>Comment(<%=blog.comments.count%>)</p>
   <%end%>
 </div>

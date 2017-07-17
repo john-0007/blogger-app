@@ -7,6 +7,24 @@
   <div class="content">
     <p><%=@blog.description%></p>
   </div>
+  <hr>
+  <h2>Comment</h2>
+  <%@blog.comments.each do |comment|%>
+  <p><%= comment.body%></p>
+  <p><%=comment.user.username%></p>
+
+  <%end%>
+  <%= form_for [@blog,@blog.comments.build] do |f|%>
+  <div class="ui form">
+    <div class="field">
+      <%= f.text_field :body%>
+    </div>
+    <div class="field">
+      <%= f.submit "post",class: "ui blue button"%>
+    </div>
+  </div>
+
+  <%end%>
   <%= link_to "Edit", edit_blog_path(@blog),class:"ui orange basic button" %>
-  <%= link_to "Delete", blog_path(@blog), Error: source does not appear to be markup.,class:"ui orange basic button" %>
+  <%= link_to "Delete", blog_path(@blog),class:"ui orange basic button" %>
 </div>
