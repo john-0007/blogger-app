@@ -1,5 +1,7 @@
 {
   "name": "blogger_app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
 }
