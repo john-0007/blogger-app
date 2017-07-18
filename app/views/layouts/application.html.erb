@@ -11,6 +11,14 @@
   <body>
     HTML CSS Javascript
     <%= render partial: "navbar"%>
-    <%= yield %>
+    <div class="ui main text container segment">
+
+      <% flash.each do |name,msg|%>
+      <div class="ui <%=name%> message">
+        <%=msg%>
+      </div>
+      <%end%>
+      <%= yield %>
+    </div>
   </body>
 </html>

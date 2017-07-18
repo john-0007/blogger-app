@@ -1,30 +1,28 @@
-<div class="ui main text container segment">
-  <div class="ui huge header"><%=@blog.title%></div>
-  <div class="ui centered image rounded">
-    <%= image_tag(@blog.body) %>
-  </div>
-
-  <div class="content">
-    <p><%=@blog.description%></p>
-  </div>
-  <hr>
-  <h2>Comment</h2>
-  <%@blog.comments.each do |comment|%>
-  <p><%= comment.body%></p>
-  <p><%=comment.user.username%></p>
-
-  <%end%>
-  <%= form_for [@blog,@blog.comments.build] do |f|%>
-  <div class="ui form">
-    <div class="field">
-      <%= f.text_field :body%>
-    </div>
-    <div class="field">
-      <%= f.submit "post",class: "ui blue button"%>
-    </div>
-  </div>
-
-  <%end%>
-  <%= link_to "Edit", edit_blog_path(@blog),class:"ui orange basic button" %>
-  <%= link_to "Delete", blog_path(@blog),class:"ui orange basic button" %>
+<div class="ui huge header"><%=@blog.title%></div>
+<div class="ui centered image rounded">
+  <%= image_tag(@blog.body) %>
 </div>
+
+<div class="content">
+  <p><%=@blog.description%></p>
+</div>
+<hr>
+<h2>Comment</h2>
+<%@blog.comments.each do |comment|%>
+<p><%= comment.body%></p>
+<p><%=comment.user.username%></p>
+
+<%end%>
+<%= form_for [@blog,@blog.comments.build] do |f|%>
+<div class="ui form">
+  <div class="field">
+    <%= f.text_field :body%>
+  </div>
+  <div class="field">
+    <%= f.submit "post",class: "ui blue button"%>
+  </div>
+</div>
+
+<%end%>
+<%= link_to "Edit", edit_blog_path(@blog),class:"ui orange basic button" %>
+<%= link_to "Delete", blog_path(@blog),class:"ui orange basic button" %>

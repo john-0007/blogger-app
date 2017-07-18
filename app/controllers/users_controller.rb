@@ -6,11 +6,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-UserMailer.resgister_email(@user).deliver_now
-      redirect_to root_path
+      UserMailer.resgister_email(@user).deliver_now
+      redirect_to new_confirmation_path, olive: 'Please enter your token for comfirmation'
     else
+      redirect_to singin_path, red: 'Registration unsucessfull'
 
-      render 'new'
     end
   end
 
