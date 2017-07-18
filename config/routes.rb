@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :blogs do
     resources :comments
   end
+  resource :confirmation
   get 'singin' => 'sessions#new'
   delete 'singout' => 'sessions#destroy'
   get 'registration' => 'users#new'
