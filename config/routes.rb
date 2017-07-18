@@ -3,11 +3,15 @@ Rails.application.routes.draw do
   resources :blogs do
     resources :comments
   end
-  resource :confirmation
-  get 'singin' => 'sessions#new'
-  delete 'singout' => 'sessions#destroy'
-  get 'registration' => 'users#new'
-  resources :users, only: [:create]
-  resource :session, only: [:create]
+  namespace :authen do
+    resources :users, only: [:create]
+    resource  :session, only: [:create]
+    resource  :confirmation
+  end
+
+  get 'singin' => 'authen/sessions#new'
+  delete 'singout' => 'authen/sessions#destroy'
+  get 'registration' => 'authen/users#new'
+
   root to: 'blogs#index'
 end
