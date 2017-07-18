@@ -33,7 +33,7 @@ Rails.application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
-
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
@@ -44,6 +44,8 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
