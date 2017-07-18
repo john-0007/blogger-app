@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Authen::SessionsController < Authen::BaseController
   def create
     @user = User.where(email: params[:email]).first
     if @user.confirmed? & @user.authenticate(params[:password])

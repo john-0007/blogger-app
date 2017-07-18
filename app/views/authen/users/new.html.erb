@@ -15,7 +15,8 @@
   </ul>
 </div>
 <%end%>
-<%= form_for @user do |f|%>
+<!-- url: authen_users_path -->
+<%= form_for [:authen, @user]  do |f|%>
 <div class="ui form">
   <div class="field">
     <%= f.label :username%>
