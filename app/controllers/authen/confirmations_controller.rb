@@ -7,9 +7,7 @@ class Authen::ConfirmationsController < Authen::BaseController
 
   def confirm_and_redirect(token)
     user = User.where(confirmation_token: token).first
-
     if session[:user_id].present?
-       byebug
       redirect_to root_path, olive: 'your already singed in!'
     elsif user && user.confirmed?
       redirect_to singin_path, teal: 'you alredy confirmed please singin'
