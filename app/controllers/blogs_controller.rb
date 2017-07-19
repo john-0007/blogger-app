@@ -14,15 +14,16 @@ class BlogsController < ApplicationController
 
   def show
     # @blog = Blog.where(id: params[:id]).first
-    @blog = Blog.find_by(id: params[:id])
+    @blog = Blog.friendly.find(params[:id])
   end
 
   def edit
-    @blogs = Blog.where(id: params[:id]).first
+    @blogs = Blog.friendly.find(params[:id])
   end
 
   def update
-    @blog = Blog.where(id: params[:id]).first
+@blog = Blog.where(id: params[:id]).first
+
     redirect_to blogs_path if @blog.update_attributes(blog_params)
   end
 
