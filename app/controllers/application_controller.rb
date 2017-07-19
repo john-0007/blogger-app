@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   add_flash_types :red, :green, :teal, :olive
   def current_user
-    User.where(id: session[:user_id]).first
+    @current_user ||= User.where(id: session[:user_id]).first
   end
   helper_method :current_user
 end
