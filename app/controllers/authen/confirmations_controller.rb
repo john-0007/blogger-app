@@ -1,21 +1,25 @@
 class Authen::ConfirmationsController < Authen::BaseController
   def new
-    if params[:token].present?
-      confirm_and_redirect(params[:token])
-    end
+    confirm_and_redirect(params[:token]) if params[:token].present?
   end
 
-  def create
-    confirm_and_redirect(params[:token])
-  end
   private
 
   def confirm_and_redirect(token)
-    @user =User.where(confirmation_token: token).first
-    @user.confirmed_at = DateTime.now
-    if @user.save
-      session[:user_id]=@user.id
-      redirect_to root_path
+    user = User.where(confirmation_token: token).first
+
+    if session[:user_id].present?
+       byebug
+      redirect_to root_path, olive: 'your already singed in!'
+    elsif user && user.confirmed?
+      redirect_to singin_path, teal: 'you alredy confirmed please singin'
+    elsif user && !user.confirmed?
+      user.confirmed_at = DateTime.now
+      session[:user_id] = user.id
+      redirect_to root_path, green: 'Thank you for confirmming your email'
+    else
+      redirect_to singin_path, red: 'Invaild token'
+
     end
   end
 end
