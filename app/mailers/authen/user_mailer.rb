@@ -1,5 +1,5 @@
 class Authen::UserMailer < ApplicationMailer
-  def resgister_email(user)
+  def register_email(user)
     @user = user
     mail(to: user.email)
   end
