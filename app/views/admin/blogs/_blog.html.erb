@@ -1,0 +1,7 @@
+<%= image_tag(blog.body) %>
+<h2><%= link_to blog.title, admin_blog_path(blog)%></h2>
+<p><%= blog.description%></p>
+<p>Comment(<%=blog.comments.count%>)</p>
+
+<%= link_to "Edit", edit_admin_blog_path(blog),class:"ui orange basic button" %>
+<%= link_to "Delete", admin_blog_path(blog),method: :delete,class:"ui orange basic button" %>
