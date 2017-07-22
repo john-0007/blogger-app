@@ -1,6 +1,6 @@
 class Admin::BlogsController < Admin::BaseController
   def index
-    @blogs = Blog.all
+    @blogs = Blog.order("created_at DESC").page(params[:page]).per(1)
   end
 
   def new
