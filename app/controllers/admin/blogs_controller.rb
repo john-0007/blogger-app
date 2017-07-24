@@ -1,6 +1,6 @@
 class Admin::BlogsController < Admin::BaseController
   def index
-    @blogs = Blog.order("created_at DESC").page(params[:page]).per(1)
+    @blogs = Blog.order('published_at DESC').page(params[:page])
   end
 
   def new
@@ -18,8 +18,7 @@ class Admin::BlogsController < Admin::BaseController
 
   def update
     @blog = Blog.friendly.find(params[:id])
-
-    redirect_to blogs_path if @blog.update_attributes(blog_params)
+    redirect_to admin_blogs_path if @blog.update_attributes(blog_params)
   end
 
   def destroy
@@ -30,6 +29,6 @@ class Admin::BlogsController < Admin::BaseController
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :body, :description)
+    params.require(:blog).permit(:title, :body, :description, :state_event)
   end
 end

@@ -1,4 +1,6 @@
 <%= image_tag(blog.body) %>
 <h2><%= link_to blog.title, blog_path(blog)%></h2>
+<p><%=time_ago_in_words(blog.published_at)%>
+  ago</p>
 <p><%= blog.description%></p>
 <p>Comment(<%=blog.comments.count%>)</p>
