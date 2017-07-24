@@ -1,0 +1,4 @@
+<%= form_for [:admin, @blogs] do|f|%>
+<%=f.hidden_field :state_event, value: :publish %>
+<%= f.submit "Publish"%>
+<%end%>

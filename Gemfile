@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'kaminari'
+gem 'stateful_enum'
 gem 'hirb', '~> 0.7.3'
 
 # Use Capistrano for deployment
