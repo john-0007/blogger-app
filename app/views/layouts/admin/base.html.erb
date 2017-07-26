@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BloggerApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="admin">
+    HTML CSS Javascript
+    <%= render partial: "navbar"%>
+    <%= yield :action_bar%>
+    <div class="ui main text container segment">
+
+      <% flash.each do |name,msg|%>
+      <div class="ui <%=name%> message">
+        <%=msg%>
+      </div>
+      <%end%>
+      <%= yield %>
+    </div>
+  </body>
+</html>

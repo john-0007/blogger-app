@@ -11,7 +11,9 @@ root to: 'blogs#index'
   end
 
   namespace :admin do
-    resources :blogs
+    resources :blogs do
+      get "/statuses/:status", to: "blogs#index", as: :by_status, on: :collection 
+    end
     root to: "blogs#index"
   end
 

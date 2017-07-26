@@ -1,4 +1,15 @@
+<%= content_for :action_bar do%>
+<div class="ui grid page">
+<div class="column">
+  <div class="ui ">
+    <ul class="ui menu top">
+      <!-- <i class="icon edit sign"></i> -->
+      <!-- <a class="active item" data-tab="edit">Edit</a>
+      <a class="item" data-tab="summary">Summary</a> -->
+      <%= Admin::BlogsHelper.render_state(self)%>
+    </ul>
+    <%end%>
 <% @blogs.each do |blog| %>
-<%= render blog%>
+  <%= render blog%>
 <%end%>
 <%= paginate @blogs %>

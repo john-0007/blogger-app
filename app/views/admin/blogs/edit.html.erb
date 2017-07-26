@@ -1,4 +1,8 @@
 <div class="ui huge header">Edit
   <%= @blogs.title%></div>
-<%= render "admin/blogs/action/#{@blogs.status}"%>
+<%= content_for :action_bar do%>
+  <div class="ui main container">
+  <%= render "admin/blogs/action/#{@blogs.status}"%>
+  </div>
+<% end %>
 <%= render "form"%>

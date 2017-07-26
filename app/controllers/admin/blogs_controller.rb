@@ -1,6 +1,6 @@
 class Admin::BlogsController < Admin::BaseController
   def index
-    @blogs = Blog.order('published_at DESC').page(params[:page])
+    @blogs = blog_scoped.order('published_at DESC').page(params[:page])
   end
 
   def new
@@ -27,6 +27,14 @@ class Admin::BlogsController < Admin::BaseController
   end
 
   private
+
+  def blog_scoped
+    if params[:status].present?
+      Blog.send(params[:status])
+    else
+      Blog.all
+    end
+  end
 
   def blog_params
     params.require(:blog).permit(:title, :body, :description, :state_event)
